@@ -24,38 +24,44 @@ start:
 
 putpixel:
 ; INPUT: 
-;   a0.l 		screen base address
-;   d0.w 	x coordinate
-;   d1.w 	y coordinate
-; 	d2.b		colour (GFRB, i.e. Green,Flash,Red,Blue)
+;   a0.l screen base address
+;   d0.w x coordinate
+;   d1.w y coordinate
+;   d2.w colour 
+	
 	move.l  a0,-(a7) ; push a0
 
 ; the screen is organized as planar bytes, as follows:
 ; GFGFGFGF RBRBRBRB
 ; Hence the address to draw to is a0+d1*128+(d0/4)*2 
 
- 	lsl.w			#7,d1
-	adda.l		d1,a0 ; a0+=d1*128
+ 	lsl.w #7,d1
+	adda.l d1,a0 ; a0+=d1*128
 
-	move.w	d0,d2
-	and.w		#$FC,d2
-	asr.w			#1,d2
-	adda.l		d2,a0  ;a0+=2*(d0/4)
+	move.w d0,d2
+	and.w #$FC,d2
+	asr.w #1,d2
+	adda.l d2,a0  ;a0+=2*(d0/4)
 
 	; now determine the mask
-	;add.l			#1,a0
+	; from here, unfinished
+	; the idea is to have the color
+	; value as the mask, which is 
+	; then shifted right according
+	; to the (x-coordinate & 0x3)
 
-	move.b 	#$FF,d2
-	move.b 	d2,(a0)
+	move.b #$FF,d2	; a dummy color
+	move.b d2,(a0)
 
-	move.l  (a7)+,a0  ; pop a0
+	move.l (a7)+,a0  ; pop a0
 	rts
  
 clearscreen:
-	move.l  #131072,a0
-	move.l	#0,d0
-	move.l	#8192,d1
+; clears the entire screen buffer
+	move.l #131072,a0
+	move.l #0,d0
+	move.l #8192,d1
 loop_clear:
-	move.l	d0,(a0)+
-	dbra 	d1,loop_clear
+	move.l d0,(a0)+
+	dbra d1,loop_clear
 	rts
