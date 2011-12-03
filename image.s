@@ -27,6 +27,8 @@ loop_inner:
 	move.l	d0,(a0)+
 	dbra	d1,loop_inner
 	add.l	#76,a0
+; the following seems like a bug -- but is needed,
+; otherwise the image is "off by 1"
 	sub.l	#4,a1
 	dbra	d2,loop_outer
 
