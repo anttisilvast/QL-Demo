@@ -30,8 +30,7 @@ putpixel:
 ;   d2.w colour 
 	
 	move.l  a0,-(a7) ; push a0
-
-; the screen is organized as planar bytes, as follows:
+; the screen is organized as planar bytes as follows:
 ; GFGFGFGF RBRBRBRB
 ; Hence the address to draw to is a0+d1*128+(d0/4)*2 
 
