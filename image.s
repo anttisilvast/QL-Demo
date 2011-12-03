@@ -27,8 +27,9 @@ loop_inner:
 	move.l	d0,(a0)+
 	dbra	d1,loop_inner
 	add.l	#76,a0
-; the following seems like a bug -- but is needed,
-; otherwise the image is "off by 1"
+; the following would not be needed were not for a bug 
+; -- nonetheless it is needed, or otherwise the image is off 
+; by 4 pixels on each subsequent row.
 	sub.l	#4,a1
 	dbra	d2,loop_outer
 
