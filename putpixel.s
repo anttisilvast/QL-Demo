@@ -32,7 +32,7 @@ putpixel:
 	move.l  a0,-(a7) ; push a0
 ; the screen is organized as planar bytes as follows:
 ; GFGFGFGF RBRBRBRB
-; (G=Green,F=Flash,R=Red,B=Blue)
+; (G=green bit,F=flash bit,R=red bit,B=blue bit)
 ; Hence the address to draw to is a0+d1*128+(d0/4)*2 
 
  	lsl.w #7,d1
