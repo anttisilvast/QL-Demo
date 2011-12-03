@@ -1,6 +1,5 @@
-A co-operation with Markku Reunanen. The project is for the Sinclair QL 
-home computer (1984). The aim is to create 68K Assembler code for 
-graphics, communications and audio.
+A project for the Sinclair QL home computer (1984), the aim is to create 68K Assembler code for 
+graphics, communications and audio. A co-operation with Markku Reunanen. 
 
 External tools we use:
 - The VASM 68k Assembler compiler: http://sun.hasenbraten.de/vasm/index.php
