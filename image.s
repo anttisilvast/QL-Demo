@@ -2,7 +2,6 @@
 ; The size of the image is 96x96.
 ; To compile, we use the vasm assembler as follows: 
 ; vasmm68k_mot -m68000 -Fbin -o image.bin image.s
-; (link http://sun.hasenbraten.de/vasm/index.php)
 
 	org	261120
 start:
