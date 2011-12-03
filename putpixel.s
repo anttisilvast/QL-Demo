@@ -33,6 +33,7 @@ putpixel:
 ; the screen is organized as planar bytes as follows:
 ; GFGFGFGF RBRBRBRB
 ; (G=green bit,F=flash bit,R=red bit,B=blue bit)
+; The low-res screen is 256 pixels wide
 ; Hence the address to draw to is a0+d1*128+(d0/4)*2 
 
  	lsl.w #7,d1
