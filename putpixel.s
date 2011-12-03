@@ -1,6 +1,9 @@
 ; An unfinished putpixel routine for sinclair QL.
 ; To compile, use the vasm assembler as follows: 
 ; vasmm68k_mot -m68000 -Fbin -o putpixel.bin putpixel.s
+;
+; Or use this project's Makefile:
+; make putpixel.bin
 
 	org	261120
 start:

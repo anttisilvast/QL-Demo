@@ -2,6 +2,9 @@
 ; The size of the image is 96x96.
 ; To compile, use the vasm assembler as follows: 
 ; vasmm68k_mot -m68000 -Fbin -o image.bin image.s
+;
+; Or use this project's Makefile:
+; make image.bin
 
 	org	261120
 start:
