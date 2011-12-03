@@ -42,14 +42,14 @@ putpixel:
 	asr.w #1,d2
 	adda.l d2,a0  ;a0+=2*(d0/4)
 
-	; now determine the mask
-	; from here, unfinished
-	; the idea is to have the color
-	; value as the mask, which is 
-	; then shifted right according
-	; to the (x-coordinate & 0x3)
+; Now determine the colour mask and OR it to the screen
+; from here, unfinished
+; but the idea is to have the color
+; value as the mask, which is 
+; then shifted right according
+; to the (x-coordinate & 0x3)
 
-	move.b #$FF,d2	; a dummy color
+	move.b #$FF,d2	; a dummy color for now
 	move.b d2,(a0)
 
 	move.l (a7)+,a0  ; pop a0
