@@ -21,7 +21,7 @@ start:
 
 	bsr clearscreen
 
-; Draw some test pixels on the screen
+; Draw some test pixels into the screen
 	move.l #131072,a0
 
 	move.w #128,d0
