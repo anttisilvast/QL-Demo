@@ -3,7 +3,7 @@ graphics, communications and audio. A co-operation with Markku Reunanen.
 
 Directories:
 
-examples/	Tiny examples for visuals on the QL
+examples/	Tiny examples of visuals on the QL
 pc-tools/	Tools for MAC/PC to help development on the QL
 
 External tools we use:
