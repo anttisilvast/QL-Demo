@@ -78,7 +78,7 @@ putpixel:
 
 	and.w #$FC,d0
 	lsr.w #1,d0
-	adda.l d0,a0  ;a0+=2*(d0/4)
+	adda.l d0,a0  ;a0+=2*(d0/4)=(d0 & $FC)/2
 
 ; Now determine the colour mask and OR it to the screen.
 ; With colour (d2) as the initial mask, this mask is 
