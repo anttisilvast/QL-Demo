@@ -1,4 +1,5 @@
 ; A raw data image viewer for sinclair QL.
+; by Antti Silvast 2011
 ; The size of the image is 88x96.
 ; To compile, use the vasm assembler as follows: 
 ; vasmm68k_mot -m68000 -Fbin -o image.bin image.s
