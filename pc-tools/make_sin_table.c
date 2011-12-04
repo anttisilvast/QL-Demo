@@ -20,7 +20,7 @@ Type make_sin_table -h for help.
 // multiplier
 #define MUL 128 // for row-based sins
 
-// how many datas per row in the output
+// how many data per row in the output
 #define PER_ROW 8
 
 // table name
@@ -39,7 +39,7 @@ int main(int argc,char *argv[]) {
 		printf("	n	wavelength in bytes (default: 256)\n");
 		printf("	ampl	amplitude (default: 64)\n");
 		printf("	mul	multiplier (default: 128)\n");
-		printf("	per_row	data per row in output (default: 8)\n");
+		printf("	per_row	data per row in the output (default: 8)\n");
 		printf("	name	table name (default: sin_table)\n\n");
 
 		return 0;
