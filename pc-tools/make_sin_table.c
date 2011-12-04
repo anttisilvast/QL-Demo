@@ -23,6 +23,9 @@ Type make_sin_table -h for help.
 // how many datas per row in the output
 #define PER_ROW 8
 
+// data type
+#define TYPE "dc.w"
+
 // table name
 #define NAME "sin_table"
 
@@ -31,16 +34,18 @@ int main(int argc,char *argv[]) {
 	int i;
 	int n=N,ampl=AMPL,mul=MUL,per_row=PER_ROW;
 	char name[20]=NAME;
+	char type[20]=TYPE;
 
 	if ((argc>1) && (!strcmp(argv[1],"-h"))) {
 		printf("\nCreates a sin table for VASM 68K Assembler.\n\n");
-		printf("use:\n	$ make_sin_table n ampl mul per_row name\n");
+		printf("use:\n	$ make_sin_table n ampl mul per_row type name\n");
 		printf("input:\n");
-		printf("	n	wavelength in bytes (default: 256)\n");
-		printf("	ampl	amplitude (default: 64)\n");
-		printf("	mul	multiplier (default: 128)\n");
-		printf("	per_row	data per row in output (default: 8)\n");
-		printf("	name	table name (default: sin_table)\n\n");
+		printf("	n	wavelength in bytes (default: %d)\n",n);
+		printf("	ampl	amplitude (default: %d)\n",ampl);
+		printf("	mul	multiplier (default: %d)\n",mul);
+		printf("	per_row	data per row in output (default: %d)\n",per_row);
+		printf("	type	dc.b (byte), dc.w (word) (default: %s)\n",type);
+		printf("	name	table name (default: %s)\n\n",name);
 
 		return 0;
 	}
@@ -54,21 +59,23 @@ int main(int argc,char *argv[]) {
 	if (argc>4) 
 		sscanf(argv[4],"%d",&per_row);
 	if (argc>5)
-		strcpy(name,argv[5]);
+		strcpy(type,argv[5]);
+	if (argc>6)
+		strcpy(name,argv[6]);
 
 	printf("%s:\n",name);
 	// print some information about the sinus
 	printf("; sinus wave with wavelength %d, amplitude %d x %d\n",n,ampl,mul);
 	
 	// start the data
-	printf("   dc.w ");
+	printf("   %s ",type);
 	for (i=0; i<n; i++) {
 		int s=((int)(sin(i*M_PI*2/n)*ampl))*mul;	
 		printf("%5d",s);
 		if (i==n-1)
 			printf("\n");
 		else if ((i & (per_row-1))==per_row-1)
-			printf("\n   dc.w ");
+			printf("\n   %s ",type);
 		else
 			printf(", ");
 
