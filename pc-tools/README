@@ -1,1 +1,6 @@
-Tools for use on the PC/MAC to help development on QL. 
+Tools for use on the PC/MAC to help development on QL. Use make to 
+compile.
+
+Files:
+
+make_sin_table.c	create sinus tables in VASM Assembler syntax

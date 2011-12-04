@@ -1,4 +1,6 @@
-Tiny examples for visuals on the QL. 
+Tiny examples for visuals on the QL. Use make to compile.
+
+Files:
 
 image.s 	a raw image viewer
 putpixel.s 	a putpixel routine
