@@ -1,5 +1,5 @@
 ; A raw data image viewer for sinclair QL.
-; The size of the image is 96x96.
+; The size of the image is 88x96.
 ; To compile, use the vasm assembler as follows: 
 ; vasmm68k_mot -m68000 -Fbin -o image.bin image.s
 ;
@@ -24,16 +24,12 @@ loop_clear:
 
 	move.l	#96,d2
 loop_outer:
-	move.l	#12,d1
+	move.l	#11,d1
 loop_inner:	
 	move.l	(a1)+,d0
 	move.l	d0,(a0)+
 	dbra	d1,loop_inner
-	add.l	#76,a0
-; the following is indicative of a bug 
-; -- it is needed, or otherwise the image is off 
-; by 4 pixels on each subsequent row.
-	sub.l	#4,a1
+	add.l	#80,a0
 	dbra	d2,loop_outer
 
 ; exit
