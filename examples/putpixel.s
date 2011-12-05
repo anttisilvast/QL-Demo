@@ -100,7 +100,7 @@ clearscreen:
 ; clears the entire screen buffer
 	move.l #131072,a0
 	move.l #0,d0
-	move.l #8192,d1
+	move.l #8191,d1
 loop_clear:
 	move.l d0,(a0)+
 	dbra d1,loop_clear
