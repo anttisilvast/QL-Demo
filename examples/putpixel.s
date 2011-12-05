@@ -58,9 +58,9 @@ start:
 putpixel:
 ; INPUT: 
 ;   a0.l screen base address
-;   d0.w x coordinate
-;   d1.w y coordinate
-;   d2.w colour (see colour constants in the beginning)
+;   d0.l x coordinate
+;   d1.l y coordinate
+;   d2.l colour (see colour constants in the beginning)
 	
 	move.l a0,-(a7)
 	move.l d0,-(a7)
@@ -87,6 +87,12 @@ putpixel:
 
 	and.w #$03,d1
 	lsl.l #1,d1
+
+; The following three lines are not needed if the background is zero already
+	move.w	#$3f3f,d0
+	ror.w	d1,d0
+	and.w	d0,(a0)
+
 	lsr.w d1,d2
 	or.w d2,(a0)
 
