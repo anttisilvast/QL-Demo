@@ -1,5 +1,5 @@
 10 REM Test sounds for the Sinclair QL BEEP command.
-20 REM A good source for sounds:  
+20 REM A good source for QL beep sounds:  
 25 REM   Dilwyn Jones's Sinclair QL page, see
 30 REM   http://www.dilwyn.me.uk/sound/index.html
 40 REM   in particular, 
