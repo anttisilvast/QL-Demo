@@ -1,5 +1,5 @@
 ; A putpixel routine for sinclair QL.
-; By Antti Silvast 2011. 
+; By Antti Silvast & Markku Reunanen 2011. 
 ; To compile, use the vasm assembler as follows: 
 ; vasmm68k_mot -m68000 -Fbin -o putpixel.bin putpixel.s
 ;
@@ -25,8 +25,8 @@ start:
 ; Draw some test pixels into the screen
 	move.l #131072,a0
 
-	move.w #128,d0
-	move.w #128,d1
+	move.l #128,d0
+	move.l #128,d1
 	move.w #RED,d2
 	bsr putpixel
 	addq #2,d0
@@ -58,9 +58,9 @@ start:
 putpixel:
 ; INPUT: 
 ;   a0.l screen base address
-;   d0.w x coordinate
-;   d1.w y coordinate
-;   d2.w colour (see colour constants in the beginning)
+;   d0.l x coordinate
+;   d1.l y coordinate
+;   d2.l colour (see colour constants in the beginning)
 	
 	move.l a0,-(a7)
 	move.l d0,-(a7)
@@ -73,12 +73,19 @@ putpixel:
 ; Hence the address to draw to is a0+y*128+(x/4)*2.
 
  	lsl.w #7,d1
+
+; might we use adda.w instead of adda.l so that d1 does
+; not have to be a long?
+
 	adda.l d1,a0 ; a0+=d1*128
 
 	move.w d0,d1 ; spare d0 in d1
 
 	and.w #$FC,d0
 	lsr.w #1,d0
+
+; see previous comment before adda.l
+
 	adda.l d0,a0  ;a0+=2*(d0/4)=(d0 & $FC)/2
 
 ; Now determine the colour mask and OR it to the screen.
@@ -87,6 +94,16 @@ putpixel:
 
 	and.w #$03,d1
 	lsl.l #1,d1
+
+; Erase the pixel that is already on this coordinate. 
+; The following three lines are not needed if the background is zero already.
+; Also, omit the three lines for a "transparent" putpixel, i.e. for example 
+; RED pixel + BLUE pixel becomes a PURPLE pixel
+
+	move.w	#$3f3f,d0
+	ror.w	d1,d0
+	and.w	d0,(a0)
+
 	lsr.w d1,d2
 	or.w d2,(a0)
 
