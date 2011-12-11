@@ -1,7 +1,7 @@
 ; A QL Rhythm
 ; By Antti Silvast 2011. 
 ;
-; Uses the QL's sound processor and plays a 2-4 125 BPM rhythm, 
+; Uses the QL's sound processor and plays a 2/4 125 BPM rhythm, 
 ; alternating a bassdrum and a single note. 
 ; 
 ; The player runs in the background in the 50 Hz interrupt. 
@@ -53,9 +53,9 @@ hook:	ds.l	2
 routine:
 	movem	d1/d5/d7/a3,-(sp) 
 
-; Check when to update a note
+; Check when to update the instrument
 	add.b	#1,tick
-	cmp.b	#12,tick ; 125 BPM, 2-4
+	cmp.b	#12,tick ; 125 BPM, 2/4
 	blt	skip	
 	move.b	#0,tick
 
