@@ -28,7 +28,11 @@ clean:	move.b	#255,(a0)+
 
 	movem	(sp)+,d0-d7/a0-a6
 
-; Loops infinitely.
+; Loops infinitely
+loop:	move.b	#$8,$18063
+	move.b	#$a,$18063
+	bra.b	loop
+
 ; The graphics shows how much refresh time the sound player takes.
 ; The results are somewhat not encouraging... 
 ; The QL's sound processor provides a few handy "special effects",
@@ -37,10 +41,6 @@ clean:	move.b	#255,(a0)+
 ; everything else always slows down (which does not happen when the note is
 ; not changed). The end result may be visuals that run at inconsistent speed 
 ; when the music is playing. (Although we do gain a music sync of a sort!) 
-
-loop:	move.b	#$8,$18063
-	move.b	#$a,$18063
-	bra.b	loop
 
 ; In practice, we never get here
 	clr.l	d0
