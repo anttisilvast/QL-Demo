@@ -1,5 +1,5 @@
 ; A putpixel routine for sinclair QL.
-; By Antti Silvast + Markku Reunanen 2011. 
+; By Antti Silvast + edits by Markku Reunanen 2011. 
 ; To compile, use the vasm assembler as follows: 
 ; vasmm68k_mot -m68000 -Fbin -o putpixel.bin putpixel.s
 ;
