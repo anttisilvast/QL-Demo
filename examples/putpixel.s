@@ -1,5 +1,5 @@
 ; A putpixel routine for sinclair QL.
-; By Antti Silvast & Markku Reunanen 2011. 
+; By Antti Silvast + Markku Reunanen 2011. 
 ; To compile, use the vasm assembler as follows: 
 ; vasmm68k_mot -m68000 -Fbin -o putpixel.bin putpixel.s
 ;
@@ -74,7 +74,7 @@ putpixel:
 
  	lsl.w #7,d1
 
-; might we use adda.w instead of adda.l so that d1 does
+; use adda.w instead of adda.l so that d1 does
 ; not have to be a long?
 
 	adda.l d1,a0 ; a0+=d1*128
@@ -97,8 +97,8 @@ putpixel:
 
 ; Erase the pixel that is already on this coordinate. 
 ; The following three lines are not needed if the background is zero already.
-; Also, omit the three lines for a "transparent" putpixel, i.e. for example 
-; RED pixel + BLUE pixel becomes a PURPLE pixel
+; Also, omit the three lines to get a transparent putpixel.
+
 
 	move.w	#$3f3f,d0
 	ror.w	d1,d0
