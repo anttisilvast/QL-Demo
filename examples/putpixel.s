@@ -73,37 +73,33 @@ putpixel:
 ; Hence the address to draw to is a0+y*128+(x/4)*2.
 
  	lsl.w #7,d1
-
-; use adda.w instead of adda.l so that d1 does
-; not have to be a long?
-
-	adda.l d1,a0 ; a0+=d1*128
+	adda.l d1,a0 ; now a0+=d1*128 (or adda.w?)
 
 	move.w d0,d1 ; spare d0 in d1
 
 	and.w #$FC,d0
 	lsr.w #1,d0
+	adda.l d0,a0  ;now a0+=2*(d0/4)=(d0 & $FC)/2 (or adda.w?)
 
-; see previous comment before adda.l
-
-	adda.l d0,a0  ;a0+=2*(d0/4)=(d0 & $FC)/2
-
-; Now determine the colour mask and OR it to the screen.
-; With colour (d2) as the initial mask, this mask is 
-; shifted right by (x & 3)*2 to align with the correct location.
+; Now put the pixel by determining the colour mask and ORring it to the 
+; screen.
+; We start with color d2 as the initial mask.  
+; The mask is shifted right according to the 
+; position in a 4-pixel area, i.e. (x & 3)*2 
 
 	and.w #$03,d1
-	lsl.l #1,d1
+	lsl.l #1,d1 ; now d1=(x & 3)*2
 
 ; Erase the pixel that is already on this coordinate. 
 ; The following three lines are not needed if the background is zero already.
 ; Also, omit the three lines to get a transparent putpixel.
 
-
 	move.w	#$3f3f,d0
 	ror.w	d1,d0
 	and.w	d0,(a0)
 
+; Shift the color mask according to the x position
+; and put the pixel to the screen. 
 	lsr.w d1,d2
 	or.w d2,(a0)
 
