@@ -22,8 +22,8 @@
 130 BEEP 0,110,190,10,7,5,2,0
 140 PAUSE 100
 1000 REM
-1010 REM A good source for further QL beep sounds is  
-1020 REM Dilwyn Jones's Sinclair QL page, see
+1010 REM For further QL beep sounds, see  
+1020 REM Dilwyn Jones's Sinclair QL page:
 1030 REM   http://www.dilwyn.me.uk/sound/index.html
-1040 REM in particular, 
+1040 REM And this example in particular: 
 1050 REM   http://www.dilwyn.me.uk/sound/soundbytes.zip
