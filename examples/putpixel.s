@@ -1,5 +1,5 @@
 ; A putpixel routine for sinclair QL.
-; By Antti Silvast + edits by Markku Reunanen 2011. 
+; By Antti Silvast + pixel eraser by Markku Reunanen 2011. 
 ; To compile, use the vasm assembler as follows: 
 ; vasmm68k_mot -m68000 -Fbin -o putpixel.bin putpixel.s
 ;
@@ -62,6 +62,7 @@ putpixel:
 ;   d1.l y coordinate
 ;   d2.l colour (see colour constants in the beginning)
 	
+; PUSH registers
 	move.l a0,-(a7)
 	move.l d0,-(a7)
 	move.l d1,-(a7)
@@ -103,6 +104,7 @@ putpixel:
 	lsr.w d1,d2
 	or.w d2,(a0)
 
+; POP registers
 	move.l (a7)+,d1
 	move.l (a7)+,d0
 	move.l (a7)+,a0
