@@ -3,8 +3,8 @@ graphics, communications and audio. A co-project with Markku Reunanen.
 
 Directories:
 
-examples/	Tiny examples of visuals on the QL
+examples/	Tiny examples of visuals and audio on the QL
 pc-tools/	Tools for MAC/PC to help development on the QL
 
-External tools we use:
+Tools required: 
 - The VASM 68k Assembler compiler: http://sun.hasenbraten.de/vasm/index.php
