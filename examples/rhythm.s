@@ -33,15 +33,6 @@ loop:	move.b	#$8,$18063
 	move.b	#$a,$18063
 	bra.b	loop
 
-; The graphics shows how much refresh time the sound player takes.
-; The results are somewhat not encouraging... 
-; The QL's sound processor provides a few handy "special effects",
-; such as pitch shifting, yet each call to the processor still takes a 
-; considerate amount of time. Thus, when a new note triggers in the music, 
-; everything else always slows down (which does not happen when the note is
-; not changed). The end result may be visuals that run at inconsistent speed 
-; when the music is playing. (Although we do gain a music sync of a sort!) 
-
 ; In practice, we never get here
 	clr.l	d0
 	rts
@@ -83,6 +74,10 @@ play:
 skip:
 	movem	(sp)+,d1/d5/d7/a3
 	rts
+
+; The QL's sound processor provides a square wave generator and some effects, 
+; most notable a pitch shifter. The format of the instrument is the same 
+; as BASIC's BEEP command.
 
 ; BASSDRUM
 instr1:
