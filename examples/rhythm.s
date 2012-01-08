@@ -76,7 +76,7 @@ skip:
 	rts
 
 ; The QL's sound processor provides a square wave generator and some effects, 
-; most notable a pitch shifter. The format of the instrument is the same 
+; most notably a pitch shifter. The format of the instrument is the same 
 ; as BASIC's BEEP command.
 
 ; BASSDRUM
