@@ -2,5 +2,7 @@ Tiny examples of visuals on the QL. Use make to compile.
 
 Files:
 
-image.s 	a raw image viewer
-putpixel.s 	a putpixel routine
+image.s 	    a raw image viewer
+putpixel.s   	a putpixel routine
+rhythm.s      simple rhythmic music
+sounds.bas    test instruments for the sound processor
