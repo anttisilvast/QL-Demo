@@ -1,6 +1,6 @@
 A project for the Sinclair QL home computer (1984), whose aim is to create 68K Assembler code for graphics, communications and audio. A co-project with Markku Reunanen. 
 
-The Sinclair QL is an obsolete computer and was never intended for real-time graphics and music. However, the project develops a curiosity in how an old professional computer works and the standards it supports (communication, graphics, audio). Such projects I would claim are still relevant for learning to program and use more contemporary computers and other information and communication technologies.  
+The Sinclair QL was probably never intended for generating real-time graphics and music. Having said that, this project develops a curiosity in how this old professional computer works and in the standards it supports (such as communication, graphics, audio). Such projects I would claim are still relevant also for learning to program more contemporary information and communication technologies.  
 
 Directories:
 
